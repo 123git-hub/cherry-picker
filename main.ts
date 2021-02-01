@@ -1,3 +1,7 @@
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    otherSprite.destroy()
+})
 let cherry: Sprite = null
 game.splash("cherrypickr")
 tiles.setTilemap(tilemap`level1`)
@@ -28,9 +32,10 @@ let mySprite = sprites.create(img`
     ........................
     `, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 200)
-info.startCountdown(60)
+scene.cameraFollowSprite(mySprite)
+info.startCountdown(99999999999999)
 info.setScore(0)
-game.onUpdateInterval(1, function () {
+game.onUpdateInterval(100, function () {
     cherry = sprites.create(img`
         . . . . . . . . . . . 6 6 6 6 6 
         . . . . . . . . . 6 6 7 7 7 7 8 
@@ -48,6 +53,6 @@ game.onUpdateInterval(1, function () {
         . . . . . . . c e e e e e e 2 c 
         . . . . . . . . c e 2 2 2 2 c . 
         . . . . . . . . . c c c c c . . 
-        `, SpriteKind.Player)
+        `, SpriteKind.Food)
     cherry.setPosition(randint(0, 160), randint(0, 120))
 })
