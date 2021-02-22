@@ -33,9 +33,9 @@ let mySprite = sprites.create(img`
     `, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 200)
 scene.cameraFollowSprite(mySprite)
-info.startCountdown(99999999999999)
+info.startCountdown(60)
 info.setScore(0)
-game.onUpdateInterval(100, function () {
+game.onUpdateInterval(500, function () {
     cherry = sprites.create(img`
         . . . . . . . . . . . 6 6 6 6 6 
         . . . . . . . . . 6 6 7 7 7 7 8 
@@ -54,5 +54,5 @@ game.onUpdateInterval(100, function () {
         . . . . . . . . c e 2 2 2 2 c . 
         . . . . . . . . . c c c c c . . 
         `, SpriteKind.Food)
-    cherry.setPosition(randint(0, 160), randint(0, 120))
+    cherry.setPosition(randint(0, 320), randint(0, 240))
 })
